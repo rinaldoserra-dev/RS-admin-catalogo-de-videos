@@ -1,0 +1,12 @@
+C:\dev\pessoal\RS-admin-catalago-de-videos-c-sharp\src\RS.CodeFlix.Catalog.Domain\bin\Debug\net6.0\RS.CodeFlix.Catalog.Domain.deps.json
+C:\dev\pessoal\RS-admin-catalago-de-videos-c-sharp\src\RS.CodeFlix.Catalog.Domain\bin\Debug\net6.0\RS.CodeFlix.Catalog.Domain.dll
+C:\dev\pessoal\RS-admin-catalago-de-videos-c-sharp\src\RS.CodeFlix.Catalog.Domain\bin\Debug\net6.0\RS.CodeFlix.Catalog.Domain.pdb
+C:\dev\pessoal\RS-admin-catalago-de-videos-c-sharp\src\RS.CodeFlix.Catalog.Domain\obj\Debug\net6.0\RS.CodeFlix.Catalog.Domain.csproj.AssemblyReference.cache
+C:\dev\pessoal\RS-admin-catalago-de-videos-c-sharp\src\RS.CodeFlix.Catalog.Domain\obj\Debug\net6.0\RS.CodeFlix.Catalog.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\dev\pessoal\RS-admin-catalago-de-videos-c-sharp\src\RS.CodeFlix.Catalog.Domain\obj\Debug\net6.0\RS.CodeFlix.Catalog.Domain.AssemblyInfoInputs.cache
+C:\dev\pessoal\RS-admin-catalago-de-videos-c-sharp\src\RS.CodeFlix.Catalog.Domain\obj\Debug\net6.0\RS.CodeFlix.Catalog.Domain.AssemblyInfo.cs
+C:\dev\pessoal\RS-admin-catalago-de-videos-c-sharp\src\RS.CodeFlix.Catalog.Domain\obj\Debug\net6.0\RS.CodeFlix.Catalog.Domain.csproj.CoreCompileInputs.cache
+C:\dev\pessoal\RS-admin-catalago-de-videos-c-sharp\src\RS.CodeFlix.Catalog.Domain\obj\Debug\net6.0\RS.CodeFlix.Catalog.Domain.dll
+C:\dev\pessoal\RS-admin-catalago-de-videos-c-sharp\src\RS.CodeFlix.Catalog.Domain\obj\Debug\net6.0\refint\RS.CodeFlix.Catalog.Domain.dll
+C:\dev\pessoal\RS-admin-catalago-de-videos-c-sharp\src\RS.CodeFlix.Catalog.Domain\obj\Debug\net6.0\RS.CodeFlix.Catalog.Domain.pdb
+C:\dev\pessoal\RS-admin-catalago-de-videos-c-sharp\src\RS.CodeFlix.Catalog.Domain\obj\Debug\net6.0\ref\RS.CodeFlix.Catalog.Domain.dll
