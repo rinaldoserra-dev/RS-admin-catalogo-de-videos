@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\RS.CodeFlix.Catalog.Flunt\RS.CodeFlix.Catalog.Flunt.csproj" />
-  </ItemGroup>
-
 </Project>

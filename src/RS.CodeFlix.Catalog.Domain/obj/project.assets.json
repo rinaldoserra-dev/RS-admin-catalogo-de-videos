@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "RS.CodeFlix.Catalog.Flunt/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/RS.CodeFlix.Catalog.Flunt.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RS.CodeFlix.Catalog.Flunt.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "RS.CodeFlix.Catalog.Flunt/1.0.0": {
+      "type": "project",
+      "path": "../RS.CodeFlix.Catalog.Flunt/RS.CodeFlix.Catalog.Flunt.csproj",
+      "msbuildProject": "../RS.CodeFlix.Catalog.Flunt/RS.CodeFlix.Catalog.Flunt.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "RS.CodeFlix.Catalog.Flunt >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\DELL\\.nuget\\packages\\": {}
@@ -33,7 +52,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\dev\\pessoal\\RS-admin-catalago-de-videos-c-sharp\\src\\RS.CodeFlix.Catalog.Flunt\\RS.CodeFlix.Catalog.Flunt.csproj": {
+              "projectPath": "C:\\dev\\pessoal\\RS-admin-catalago-de-videos-c-sharp\\src\\RS.CodeFlix.Catalog.Flunt\\RS.CodeFlix.Catalog.Flunt.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

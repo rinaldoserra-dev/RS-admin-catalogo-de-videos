@@ -1812,11 +1812,24 @@
       "RS.CodeFlix.Catalog.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "RS.CodeFlix.Catalog.Flunt": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/RS.CodeFlix.Catalog.Domain.dll": {}
         },
         "runtime": {
           "bin/placeholder/RS.CodeFlix.Catalog.Domain.dll": {}
+        }
+      },
+      "RS.CodeFlix.Catalog.Flunt/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/RS.CodeFlix.Catalog.Flunt.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RS.CodeFlix.Catalog.Flunt.dll": {}
         }
       }
     }
@@ -6118,6 +6131,11 @@
       "type": "project",
       "path": "../../src/RS.CodeFlix.Catalog.Domain/RS.CodeFlix.Catalog.Domain.csproj",
       "msbuildProject": "../../src/RS.CodeFlix.Catalog.Domain/RS.CodeFlix.Catalog.Domain.csproj"
+    },
+    "RS.CodeFlix.Catalog.Flunt/1.0.0": {
+      "type": "project",
+      "path": "../../src/RS.CodeFlix.Catalog.Flunt/RS.CodeFlix.Catalog.Flunt.csproj",
+      "msbuildProject": "../../src/RS.CodeFlix.Catalog.Flunt/RS.CodeFlix.Catalog.Flunt.csproj"
     }
   },
   "projectFileDependencyGroups": {

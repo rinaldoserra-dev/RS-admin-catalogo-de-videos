@@ -1091,8 +1091,16 @@
       },
       "xunit.runner.visualstudio/2.4.5": {},
       "RS.CodeFlix.Catalog.Domain/1.0.0": {
+        "dependencies": {
+          "RS.CodeFlix.Catalog.Flunt": "1.0.0"
+        },
         "runtime": {
           "RS.CodeFlix.Catalog.Domain.dll": {}
+        }
+      },
+      "RS.CodeFlix.Catalog.Flunt/1.0.0": {
+        "runtime": {
+          "RS.CodeFlix.Catalog.Flunt.dll": {}
         }
       }
     }
@@ -1748,6 +1756,11 @@
       "hashPath": "xunit.runner.visualstudio.2.4.5.nupkg.sha512"
     },
     "RS.CodeFlix.Catalog.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RS.CodeFlix.Catalog.Flunt/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

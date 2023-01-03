@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "RS.CodeFlix.Catalog.Domain/1.0.0": {
+        "dependencies": {
+          "RS.CodeFlix.Catalog.Flunt": "1.0.0"
+        },
         "runtime": {
           "RS.CodeFlix.Catalog.Domain.dll": {}
+        }
+      },
+      "RS.CodeFlix.Catalog.Flunt/1.0.0": {
+        "runtime": {
+          "RS.CodeFlix.Catalog.Flunt.dll": {}
         }
       }
     }
   },
   "libraries": {
     "RS.CodeFlix.Catalog.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RS.CodeFlix.Catalog.Flunt/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

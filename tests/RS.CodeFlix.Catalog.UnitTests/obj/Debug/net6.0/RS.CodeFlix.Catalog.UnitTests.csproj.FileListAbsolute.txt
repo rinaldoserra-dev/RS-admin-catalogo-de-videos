@@ -100,3 +100,5 @@ C:\dev\pessoal\RS-admin-catalago-de-videos-c-sharp\tests\RS.CodeFlix.Catalog.Uni
 C:\dev\pessoal\RS-admin-catalago-de-videos-c-sharp\tests\RS.CodeFlix.Catalog.UnitTests\obj\Debug\net6.0\RS.CodeFlix.Catalog.UnitTests.pdb
 C:\dev\pessoal\RS-admin-catalago-de-videos-c-sharp\tests\RS.CodeFlix.Catalog.UnitTests\obj\Debug\net6.0\RS.CodeFlix.Catalog.UnitTests.genruntimeconfig.cache
 C:\dev\pessoal\RS-admin-catalago-de-videos-c-sharp\tests\RS.CodeFlix.Catalog.UnitTests\obj\Debug\net6.0\ref\RS.CodeFlix.Catalog.UnitTests.dll
+C:\dev\pessoal\RS-admin-catalago-de-videos-c-sharp\tests\RS.CodeFlix.Catalog.UnitTests\bin\Debug\net6.0\RS.CodeFlix.Catalog.Flunt.dll
+C:\dev\pessoal\RS-admin-catalago-de-videos-c-sharp\tests\RS.CodeFlix.Catalog.UnitTests\bin\Debug\net6.0\RS.CodeFlix.Catalog.Flunt.pdb
