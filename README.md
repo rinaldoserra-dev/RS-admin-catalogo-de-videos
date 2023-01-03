@@ -1,6 +1,5 @@
 <center>
   <p align="center">
-    <img src="https://user-images.githubusercontent.com/20674439/158480514-a529b310-bc19-46a5-ac95-fddcfa4776ee.png" width="150"/>&nbsp;
     <img src="https://user-images.githubusercontent.com/20674439/158480674-3b8895e7-420e-4025-bd78-8058ba255476.png"  width="150" />
   </p>  
   <h1 align="center">🚀 Microsserviço Catálogo de Vídeos com .NET</h1>
@@ -16,7 +15,7 @@
 
 - Basta clonar o Repositório:
 ```sh
-git clone https://github.com/codeedu/fc3-catalogo-de-videos-dotnet.git
+git clone https://github.com/rinaldoserra-dev/RS-admin-catalogo-de-videos.git
 ```
 
 - Então executar o arquivo da solution com Visual Studio 2022
