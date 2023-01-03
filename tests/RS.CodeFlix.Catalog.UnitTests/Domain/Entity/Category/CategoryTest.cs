@@ -1,4 +1,5 @@
-﻿using RS.CodeFlix.Catalog.Domain.Exceptions;
+﻿using FluentAssertions;
+using RS.CodeFlix.Catalog.Domain.Exceptions;
 using Xunit;
 using DomainEntity = RS.CodeFlix.Catalog.Domain.Entity;
 namespace RS.CodeFlix.Catalog.UnitTests.Domain.Entity.Category;
@@ -22,14 +23,18 @@ public class CategoryTest
         var dateTimeAfter = DateTime.Now;
 
         //Assert
-        Assert.NotNull(category);
-        Assert.Equal(validData.Name, category.Name);
-        Assert.Equal(validData.Description, category.Description);
-        Assert.NotEqual(default(Guid), category.Id);
-        Assert.NotEqual(default(DateTime), category.CreatedAt);
-        Assert.True(category.CreatedAt > dateTimeBefore);
-        Assert.True(category.CreatedAt < dateTimeAfter);
-        Assert.True(category.IsActive);
+        category.Should().NotBeNull();
+        category.Name.Should().Be(validData.Name);
+        category.Description.Should().Be(validData.Description);
+        category.Id.Should().NotBeEmpty();
+        category.Id.Should().NotBe(default(Guid));
+        category.CreatedAt.Should().NotBeSameDateAs(default(DateTime));
+        (category.CreatedAt > dateTimeBefore).Should().BeTrue();
+        (category.CreatedAt < dateTimeAfter).Should().BeTrue();
+        (category.IsActive).Should().BeTrue();
+        //Assert.True(category.CreatedAt > dateTimeBefore);
+        //Assert.True(category.CreatedAt < dateTimeAfter);
+        //Assert.True(category.IsActive);
     }
 
     [Theory(DisplayName = nameof(InstantiateWithIsActive))]
@@ -51,14 +56,15 @@ public class CategoryTest
         var dateTimeAfter = DateTime.Now.AddDays(1);
 
         //Assert
-        Assert.NotNull(category);
-        Assert.Equal(validData.Name, category.Name);
-        Assert.Equal(validData.Description, category.Description);
-        Assert.NotEqual(default(Guid), category.Id);
-        Assert.NotEqual(default(DateTime), category.CreatedAt);
-        Assert.True(category.CreatedAt > dateTimeBefore);
-        Assert.True(category.CreatedAt < dateTimeAfter);
-        Assert.Equal(isActive, category.IsActive);
+        category.Should().NotBeNull();
+        category.Name.Should().Be(validData.Name);
+        category.Description.Should().Be(validData.Description);
+        category.Id.Should().NotBeEmpty();
+        category.Id.Should().NotBe(default(Guid));
+        category.CreatedAt.Should().NotBeSameDateAs(default(DateTime));
+        (category.CreatedAt > dateTimeBefore).Should().BeTrue();
+        (category.CreatedAt < dateTimeAfter).Should().BeTrue();
+        category.IsActive.Should().Be(isActive);       
     }
 
     [Theory(DisplayName = nameof(InstantiateErrorWhenNameIsEmpty))]
@@ -69,6 +75,7 @@ public class CategoryTest
     public void InstantiateErrorWhenNameIsEmpty(string? name)
     {
         var category = new DomainEntity.Category(name!, "Category Description");
+        //Action action = () => new DomainEntity.Category(name!, "Category Description");
 
         Assert.Equal("Name should not be empty or null", category.Notifications.Where(n => n.Property == "Name_IsNullOrWhiteSpace").FirstOrDefault()!.Message);
     }
@@ -130,7 +137,7 @@ public class CategoryTest
 
         category.Activate();
         
-        Assert.True(category.IsActive);
+        category.IsActive.Should().BeTrue();
     }
 
     [Fact(DisplayName = nameof(Deactivate))]
@@ -147,7 +154,7 @@ public class CategoryTest
 
         category.Deactivate();
 
-        Assert.False(category.IsActive);
+        category.IsActive.Should().BeFalse();
     }
 
     [Fact(DisplayName = nameof(Update))]
@@ -164,8 +171,8 @@ public class CategoryTest
 
         category.Update(newValues.Name, newValues.Description);
 
-        Assert.Equal(newValues.Name, category.Name);
-        Assert.Equal(newValues.Description, category.Description);
+        category.Name.Should().Be(newValues.Name);
+        category.Description.Should().Be(newValues.Description);
     }
 
     [Fact(DisplayName = nameof(UpdateOnlyName))]
@@ -179,8 +186,9 @@ public class CategoryTest
 
         category.Update(newValues.Name);
 
-        Assert.Equal(newValues.Name, category.Name);
-        Assert.Equal(currentDescription, category.Description);
+        category.Name.Should().Be(newValues.Name);
+        category.Description.Should().Be(currentDescription);
+        
     }
 
     [Theory(DisplayName = nameof(UpdateErrorWhenNameIsEmpty))]
