@@ -41,11 +41,12 @@ namespace RS.CodeFlix.Catalog.Domain.Entity
         {
             AddNotifications(new Contract()
                 .Requires()
-                .IsNullOrWhiteSpace(Name, "Name_IsNullOrWhiteSpace", $"{nameof(Name)} should not be empty or null")
-                .HasMinLen(Name, 3, "Name_HasMinLen", $"{nameof(Name)} should be at leats 3 characters long")
-                .HasMaxLen(Name, 255, "Name_HasMaxLen", $"{nameof(Name)} should be less or equal 255 characters long")
-                .IsNotNull(Description, "Description_IsNotNull", $"{nameof(Description) } should not be null")
-                .HasMaxLen(Description, 10_000, "Description_HasMaxLen", $"{nameof(Description)} should be less or equal 10.000 characters long")
+                .IsNotWhiteSpace(Name,"Name", $"{nameof(Name)} should not be empty")
+                .IsNotNull(Name, "Name", $"{nameof(Name)} should not be null")
+                .HasMinLen(Name, 3, "Name", $"{nameof(Name)} should be at leats 3 characters long")
+                .HasMaxLen(Name, 255, "Name", $"{nameof(Name)} should be less or equal 255 characters long")
+                .IsNotNull(Description, "Description", $"{nameof(Description) } should not be null")
+                .HasMaxLen(Description, 10_000, "Description", $"{nameof(Description)} should be less or equal 10.000 characters long")
                 );
         }
     }

@@ -22,7 +22,25 @@ namespace RS.CodeFlix.Catalog.Flunt.Validations
 
         public Contract IsNullOrWhiteSpace(string val, string property, string message)
         {
+            if (!string.IsNullOrWhiteSpace(val))
+                AddNotification(property, message);
+
+            return this;
+        }
+
+        public Contract IsNotNullOrWhiteSpace(string val, string property, string message)
+        {
             if (string.IsNullOrWhiteSpace(val))
+                AddNotification(property, message);
+
+            return this;
+        }
+
+        public Contract IsNotWhiteSpace(string val, string property, string message)
+        {
+            if (val == null)
+                return this;
+            if (val.Trim().Length == 0)
                 AddNotification(property, message);
 
             return this;
@@ -30,7 +48,9 @@ namespace RS.CodeFlix.Catalog.Flunt.Validations
 
         public Contract HasMinLen(string val, int min, string property, string message)
         {
-            if (string.IsNullOrEmpty(val) || val.Length < min)
+            if (val == null)
+                return this;
+            if (val!.Length < min)
                 AddNotification(property, message);
 
             return this;
@@ -38,7 +58,9 @@ namespace RS.CodeFlix.Catalog.Flunt.Validations
 
         public Contract HasMaxLen(string val, int max, string property, string message)
         {
-            if (string.IsNullOrEmpty(val) || val.Length > max) 
+            if (val == null)
+                return this;
+            if (val!.Length > max) 
                 AddNotification(property, message);
 
             return this;
@@ -46,7 +68,9 @@ namespace RS.CodeFlix.Catalog.Flunt.Validations
 
         public Contract HasLen(string val, int len, string property, string message)
         {
-            if (string.IsNullOrEmpty(val) || val.Length != len)
+            if (val == null)
+                return this;
+            if (val.Length != len)
                 AddNotification(property, message);
 
             return this;
