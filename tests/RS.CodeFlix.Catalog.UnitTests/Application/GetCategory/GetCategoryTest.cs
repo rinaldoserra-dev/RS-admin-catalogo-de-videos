@@ -17,7 +17,7 @@ namespace RS.CodeFlix.Catalog.UnitTests.Application.GetCategory
         }
 
         [Fact(DisplayName = nameof(GetCategory))]
-        [Trait("Application", "GetCategory - Use Cases")]
+        [Trait("Application", "GetCategoryTest - Use Cases")]
         public async Task GetCategory()
         {
             var repositoryMock = _fixture.GetRepositoryMock();
@@ -52,7 +52,7 @@ namespace RS.CodeFlix.Catalog.UnitTests.Application.GetCategory
         }
 
         [Fact(DisplayName = nameof(NotFoundNotificationWhenCategoryDoesntExist))]
-        [Trait("Application", "GetCategory - Use Cases")]
+        [Trait("Application", "GetCategoryTest - Use Cases")]
         public async Task NotFoundNotificationWhenCategoryDoesntExist()
         {
             var repositoryMock = _fixture.GetRepositoryMock();

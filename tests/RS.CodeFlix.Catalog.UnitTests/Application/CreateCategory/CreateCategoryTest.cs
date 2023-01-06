@@ -20,7 +20,7 @@ namespace RS.CodeFlix.Catalog.UnitTests.Application.CreateCategory
 
         [Fact(DisplayName = nameof(CreateCategory))]
         [Trait("Application", "CreateCategoryTest - Use Cases")]
-        public async void CreateCategory()
+        public async Task CreateCategory()
         {
             var repositoryMock = _fixture.GetRepositoryMock();
             var unitOfWorkMock = _fixture.GetUnitOfWorkMock();
