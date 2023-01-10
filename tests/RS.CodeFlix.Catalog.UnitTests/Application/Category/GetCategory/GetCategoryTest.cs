@@ -4,7 +4,7 @@ using RS.CodeFlix.Catalog.Flunt.Notifications;
 using Xunit;
 using UseCase = RS.CodeFlix.Catalog.Application.UseCases.Category.GetCategory;
 
-namespace RS.CodeFlix.Catalog.UnitTests.Application.GetCategory
+namespace RS.CodeFlix.Catalog.UnitTests.Application.Category.GetCategory
 {
     [Collection(nameof(GetCategoryTestFixture))]
     public class GetCategoryTest
@@ -21,7 +21,7 @@ namespace RS.CodeFlix.Catalog.UnitTests.Application.GetCategory
         public async Task GetCategory()
         {
             var repositoryMock = _fixture.GetRepositoryMock();
-            var exampleCategory = _fixture.GetValidCategory();
+            var exampleCategory = _fixture.GetExampleCategory();
 
             repositoryMock.Setup(x => x.Get(
                     It.IsAny<Guid>(),
@@ -57,7 +57,7 @@ namespace RS.CodeFlix.Catalog.UnitTests.Application.GetCategory
         {
             var repositoryMock = _fixture.GetRepositoryMock();
             var exampleGuid = Guid.NewGuid();
-            
+
             repositoryMock.Setup(x => x.Get(
                     It.IsAny<Guid>(),
                     It.IsAny<CancellationToken>()
@@ -80,7 +80,7 @@ namespace RS.CodeFlix.Catalog.UnitTests.Application.GetCategory
 
             output.Should().BeNull();
             useCase.Notifications.Should()
-                .BeEquivalentTo(new List<Notification>() 
+                .BeEquivalentTo(new List<Notification>()
                 {
                     new Notification("Category", $"Category {exampleGuid} not found"),
                 }

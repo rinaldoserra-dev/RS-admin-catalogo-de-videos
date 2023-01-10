@@ -1,7 +1,6 @@
 ﻿using RS.CodeFlix.Catalog.Application.UseCases.Category.ListCategories;
-using System;
 
-namespace RS.CodeFlix.Catalog.UnitTests.Application.ListCategories
+namespace RS.CodeFlix.Catalog.UnitTests.Application.Category.ListCategories
 {
     public class ListCategoriesTestDataGenerator
     {
@@ -16,21 +15,21 @@ namespace RS.CodeFlix.Catalog.UnitTests.Application.ListCategories
                 switch (i % totalInvalidCases)
                 {
                     case 0:
-                        yield return new object[] { 
-                            new ListCategoriesInput() 
+                        yield return new object[] {
+                            new ListCategoriesInput()
                         };
                         break;
                     case 1:
-                        yield return new object[] { 
-                            new ListCategoriesInput(inputExample.Page) 
+                        yield return new object[] {
+                            new ListCategoriesInput(inputExample.Page)
                         };
                         break;
                     case 2:
-                        yield return new object[] { 
+                        yield return new object[] {
                             new ListCategoriesInput(
-                                inputExample.Page, 
+                                inputExample.Page,
                                 inputExample.PerPage
-                            ) 
+                            )
                         };
                         break;
                     case 3:

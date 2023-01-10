@@ -1,12 +1,11 @@
-﻿using UseCase = RS.CodeFlix.Catalog.Application.UseCases.Category.DeleteCategory;
-using Xunit;
-using Moq;
-using FluentAssertions;
-using Microsoft.VisualStudio.TestPlatform.Utilities;
-using RS.CodeFlix.Catalog.Flunt.Notifications;
+﻿using FluentAssertions;
 using MediatR;
+using Moq;
+using RS.CodeFlix.Catalog.Flunt.Notifications;
+using Xunit;
+using UseCase = RS.CodeFlix.Catalog.Application.UseCases.Category.DeleteCategory;
 
-namespace RS.CodeFlix.Catalog.UnitTests.Application.DeleteCategory
+namespace RS.CodeFlix.Catalog.UnitTests.Application.Category.DeleteCategory
 {
     [Collection(nameof(DeleteCategoryTestFixture))]
     public class DeleteCategoryTest
@@ -24,7 +23,7 @@ namespace RS.CodeFlix.Catalog.UnitTests.Application.DeleteCategory
         {
             var repositoryMock = _fixture.GetRepositoryMock();
             var unitOfWorkMock = _fixture.GetUnitOfWorkMock();
-            var exampleCategory = _fixture.GetValidCategory();
+            var exampleCategory = _fixture.GetExampleCategory();
             repositoryMock.Setup(x => x.Get(
                     exampleCategory.Id,
                     It.IsAny<CancellationToken>()

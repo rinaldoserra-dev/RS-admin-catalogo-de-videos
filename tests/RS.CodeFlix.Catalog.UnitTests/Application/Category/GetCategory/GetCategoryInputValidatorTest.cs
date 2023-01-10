@@ -1,25 +1,25 @@
 ﻿using FluentAssertions;
-using RS.CodeFlix.Catalog.Application.UseCases.Category.DeleteCategory;
+using RS.CodeFlix.Catalog.Application.UseCases.Category.GetCategory;
 using RS.CodeFlix.Catalog.Flunt.Notifications;
 using Xunit;
 
-namespace RS.CodeFlix.Catalog.UnitTests.Application.DeleteCategory
+namespace RS.CodeFlix.Catalog.UnitTests.Application.Category.GetCategory
 {
-    [Collection(nameof(DeleteCategoryTestFixture))]
+    [Collection(nameof(GetCategoryTestFixture))]
     public class DeleteCategoryInputValidatorTest
     {
-        private readonly DeleteCategoryTestFixture _fixture;
+        private readonly GetCategoryTestFixture _fixture;
 
-        public DeleteCategoryInputValidatorTest(DeleteCategoryTestFixture fixture)
+        public DeleteCategoryInputValidatorTest(GetCategoryTestFixture fixture)
         {
             _fixture = fixture;
         }
 
         [Fact(DisplayName = nameof(ValidationOk))]
-        [Trait("Application", "DeleteCategoryInputValidationTest - Use Cases")]
+        [Trait("Application", "GetCategoryInputValidationTest - Use Cases")]
         public void ValidationOk()
         {
-            var validInput = new DeleteCategoryInput(Guid.NewGuid());
+            var validInput = new GetCategoryInput(Guid.NewGuid());
             validInput.Validate();
 
             validInput.Should().NotBeNull();
@@ -28,10 +28,10 @@ namespace RS.CodeFlix.Catalog.UnitTests.Application.DeleteCategory
         }
 
         [Fact(DisplayName = nameof(InvalidWhenEmptyGuidId))]
-        [Trait("Application", "DeleteCategoryInputValidationTest - Use Cases")]
+        [Trait("Application", "GetCategoryInputValidationTest - Use Cases")]
         public void InvalidWhenEmptyGuidId()
         {
-            var validInput = new DeleteCategoryInput(Guid.Empty);
+            var validInput = new GetCategoryInput(Guid.Empty);
             validInput.Validate();
 
             validInput.Should().NotBeNull();

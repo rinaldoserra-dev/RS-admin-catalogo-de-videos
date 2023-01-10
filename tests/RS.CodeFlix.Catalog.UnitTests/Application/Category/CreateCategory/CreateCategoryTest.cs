@@ -1,12 +1,12 @@
 ﻿using FluentAssertions;
 using Moq;
 using RS.CodeFlix.Catalog.Application.UseCases.Category.CreateCategory;
-using RS.CodeFlix.Catalog.Domain.Entity;
+using DomainEntity = RS.CodeFlix.Catalog.Domain.Entity;
 using RS.CodeFlix.Catalog.Flunt.Notifications;
 using Xunit;
 using UseCases = RS.CodeFlix.Catalog.Application.UseCases.Category.CreateCategory;
 
-namespace RS.CodeFlix.Catalog.UnitTests.Application.CreateCategory
+namespace RS.CodeFlix.Catalog.UnitTests.Application.Category.CreateCategory
 {
     [Collection(nameof(CreateCategoryTestFixture))]
     public class CreateCategoryTest
@@ -35,7 +35,7 @@ namespace RS.CodeFlix.Catalog.UnitTests.Application.CreateCategory
 
             repositoryMock.Verify(
                 repository => repository.Insert(
-                    It.IsAny<Category>(),
+                    It.IsAny<DomainEntity.Category>(),
                     It.IsAny<CancellationToken>()
                 ),
                 Times.Once);
@@ -50,7 +50,7 @@ namespace RS.CodeFlix.Catalog.UnitTests.Application.CreateCategory
             output.Description.Should().Be(input.Description);
             output.IsActive.Should().Be(input.IsActive);
             output.Id.Should().NotBeEmpty();
-            output.CreatedAt.Should().NotBeSameDateAs(default(DateTime));
+            output.CreatedAt.Should().NotBeSameDateAs(default);
         }
 
         [Theory(DisplayName = nameof(NofificationWhenCantInstantiateCategory))]
@@ -58,7 +58,7 @@ namespace RS.CodeFlix.Catalog.UnitTests.Application.CreateCategory
         [MemberData(
             nameof(CreateCategoryTestDataGenerator.GetInvalidInputs),
             parameters: 24,
-            MemberType = typeof(CreateCategoryTestDataGenerator) 
+            MemberType = typeof(CreateCategoryTestDataGenerator)
         )]
         public async void NofificationWhenCantInstantiateCategory(
             CreateCategoryInput input,
@@ -79,7 +79,7 @@ namespace RS.CodeFlix.Catalog.UnitTests.Application.CreateCategory
                 new Notification(PropertyMessage, NotificationMessage)
                });
         }
-        
+
 
         [Fact(DisplayName = nameof(CreateCategoryWithOnlyName))]
         [Trait("Application", "CreateCategoryTest - Use Cases")]
@@ -98,7 +98,7 @@ namespace RS.CodeFlix.Catalog.UnitTests.Application.CreateCategory
 
             repositoryMock.Verify(
                 repository => repository.Insert(
-                    It.IsAny<Category>(),
+                    It.IsAny<DomainEntity.Category>(),
                     It.IsAny<CancellationToken>()
                 ),
                 Times.Once);
@@ -113,7 +113,7 @@ namespace RS.CodeFlix.Catalog.UnitTests.Application.CreateCategory
             output.Description.Should().Be("");
             output.IsActive.Should().BeTrue();
             output.Id.Should().NotBeEmpty();
-            output.CreatedAt.Should().NotBeSameDateAs(default(DateTime));
+            output.CreatedAt.Should().NotBeSameDateAs(default);
         }
 
         [Fact(DisplayName = nameof(CreateCategoryWithOnlyNameAndDescription))]
@@ -133,7 +133,7 @@ namespace RS.CodeFlix.Catalog.UnitTests.Application.CreateCategory
 
             repositoryMock.Verify(
                 repository => repository.Insert(
-                    It.IsAny<Category>(),
+                    It.IsAny<DomainEntity.Category>(),
                     It.IsAny<CancellationToken>()
                 ),
                 Times.Once);
@@ -148,7 +148,7 @@ namespace RS.CodeFlix.Catalog.UnitTests.Application.CreateCategory
             output.Description.Should().Be(input.Description);
             output.IsActive.Should().BeTrue();
             output.Id.Should().NotBeEmpty();
-            output.CreatedAt.Should().NotBeSameDateAs(default(DateTime));
+            output.CreatedAt.Should().NotBeSameDateAs(default);
         }
     }
 }

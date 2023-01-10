@@ -1,31 +1,12 @@
-﻿using RS.CodeFlix.Catalog.Application.UseCases.Category.UpdateCategory;
-
-
-namespace RS.CodeFlix.Catalog.UnitTests.Application.UpdateCategory
+﻿namespace RS.CodeFlix.Catalog.UnitTests.Application.Category.CreateCategory
 {
-    public class UpdateCategoryTestDataGenerator
+    public class CreateCategoryTestDataGenerator
     {
-        public static IEnumerable<object[]> GetCategoriesToUpdate(int times = 10)
-        {
-            var fixture = new UpdateCategoryTestFixture();
-
-            for (int index = 0; index < times; index++)
-            {
-                var exampleCategory = fixture.GetExampleCategory();
-                var exampleInput = fixture.GetValidInput(exampleCategory.Id);
-                
-                yield return new object[] {
-                    exampleCategory,
-                    exampleInput 
-                };
-            }
-        }
-
         public static IEnumerable<object[]> GetInvalidInputs(int times = 12)
         {
-            var fixture = new UpdateCategoryTestFixture();
+            var fixture = new CreateCategoryTestFixture();
             var invalidInputList = new List<object[]>();
-            var totalInvalidCases = 3;
+            var totalInvalidCases = 4;
 
             for (int index = 0; index < times; index++)
             {
@@ -46,6 +27,13 @@ namespace RS.CodeFlix.Catalog.UnitTests.Application.UpdateCategory
                         });
                         break;
                     case 2:
+                        invalidInputList.Add(new object[] {
+                            fixture.GetInvalidInputDescriptionNull(),
+                            "Description",
+                            "Description should not be null"
+                        });
+                        break;
+                    case 3:
                         invalidInputList.Add(new object[] {
                             fixture.GetInvalidInputTooLongDescription(),
                             "Description",

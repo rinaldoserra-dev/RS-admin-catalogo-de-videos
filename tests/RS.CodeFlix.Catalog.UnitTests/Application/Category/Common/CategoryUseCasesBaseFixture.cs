@@ -1,20 +1,21 @@
 ﻿using Moq;
-using RS.CodeFlix.Catalog.Domain.Entity;
+using RS.CodeFlix.Catalog.Application.Interfaces;
+using DomainEntity = RS.CodeFlix.Catalog.Domain.Entity;
 using RS.CodeFlix.Catalog.Domain.Repository;
 using RS.CodeFlix.Catalog.UnitTests.Common;
-using Xunit;
 
-namespace RS.CodeFlix.Catalog.UnitTests.Application.GetCategory
+namespace RS.CodeFlix.Catalog.UnitTests.Application.Category.Common
 {
-    [CollectionDefinition(nameof(GetCategoryTestFixture))]
-    public class GetCategoryTestFixtureCollection
-       : ICollectionFixture<GetCategoryTestFixture>
-    { }
-    public class GetCategoryTestFixture : BaseFixture
+    public abstract class CategoryUseCasesBaseFixture : BaseFixture
     {
         public Mock<ICategoryRepository> GetRepositoryMock()
         {
             return new Mock<ICategoryRepository>();
+        }
+
+        public Mock<IUnitOfWork> GetUnitOfWorkMock()
+        {
+            return new Mock<IUnitOfWork>();
         }
         public string GetValidCategoryName()
         {
@@ -35,9 +36,17 @@ namespace RS.CodeFlix.Catalog.UnitTests.Application.GetCategory
             return categoryDescription;
         }
 
-        public Category GetValidCategory()
+        public bool GetRandomBoolean()
         {
-            return new Category(GetValidCategoryName(), GetValidCategoryDescription());
+            return new Random().NextDouble() < 0.5;
+        }
+
+        public DomainEntity.Category GetExampleCategory()
+        {
+            return new DomainEntity.Category(
+                GetValidCategoryName(),
+                GetValidCategoryDescription(),
+                GetRandomBoolean());
         }
     }
 }

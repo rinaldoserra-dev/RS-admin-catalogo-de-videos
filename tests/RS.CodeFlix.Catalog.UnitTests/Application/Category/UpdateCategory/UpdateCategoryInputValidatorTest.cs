@@ -2,7 +2,7 @@
 using RS.CodeFlix.Catalog.Flunt.Notifications;
 using Xunit;
 
-namespace RS.CodeFlix.Catalog.UnitTests.Application.UpdateCategory
+namespace RS.CodeFlix.Catalog.UnitTests.Application.Category.UpdateCategory
 {
     [Collection(nameof(UpdateCategoryTestFixture))]
     public class UpdateCategoryInputValidatorTest

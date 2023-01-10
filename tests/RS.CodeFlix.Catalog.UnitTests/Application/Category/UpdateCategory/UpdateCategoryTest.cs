@@ -1,14 +1,13 @@
 ﻿using FluentAssertions;
 using Moq;
 using RS.CodeFlix.Catalog.Application.UseCases.Category.Common;
-using RS.CodeFlix.Catalog.Application.UseCases.Category.CreateCategory;
 using RS.CodeFlix.Catalog.Application.UseCases.Category.UpdateCategory;
-using RS.CodeFlix.Catalog.Domain.Entity;
 using RS.CodeFlix.Catalog.Flunt.Notifications;
 using Xunit;
+using DomainEntity = RS.CodeFlix.Catalog.Domain.Entity;
 using UseCase = RS.CodeFlix.Catalog.Application.UseCases.Category.UpdateCategory;
 
-namespace RS.CodeFlix.Catalog.UnitTests.Application.UpdateCategory
+namespace RS.CodeFlix.Catalog.UnitTests.Application.Category.UpdateCategory
 {
     [Collection(nameof(UpdateCategoryTestFixture))]
     public class UpdateCategoryTest
@@ -26,18 +25,18 @@ namespace RS.CodeFlix.Catalog.UnitTests.Application.UpdateCategory
             parameters: 10,
             MemberType = typeof(UpdateCategoryTestDataGenerator))]
         public async Task UpdateCategory(
-            Category exampleCategory, 
+            DomainEntity.Category exampleCategory,
             UpdateCategoryInput input
         )
         {
             var repositoryMock = _fixture.GetRepositoryMock();
             var unitOfWorkMock = _fixture.GetUnitOfWorkMock();
-            
+
             repositoryMock.Setup(x => x.Get(
                     exampleCategory.Id,
                     It.IsAny<CancellationToken>()
             )).ReturnsAsync(exampleCategory);
-            
+
             var useCase = new UseCase.UpdateCategory(
                 repositoryMock.Object,
                 unitOfWorkMock.Object
@@ -69,13 +68,13 @@ namespace RS.CodeFlix.Catalog.UnitTests.Application.UpdateCategory
 
         [Fact(DisplayName = nameof(NotificationWhenCategoryNotFound))]
         [Trait("Application", "UpdateCategory - Use Cases")]
-       
+
         public async Task NotificationWhenCategoryNotFound()
         {
             var repositoryMock = _fixture.GetRepositoryMock();
             var unitOfWorkMock = _fixture.GetUnitOfWorkMock();
             var input = _fixture.GetValidInput();
-            
+
             repositoryMock.Setup(x => x.Get(
                     input.Id,
                     It.IsAny<CancellationToken>()
@@ -110,12 +109,12 @@ namespace RS.CodeFlix.Catalog.UnitTests.Application.UpdateCategory
             parameters: 10,
             MemberType = typeof(UpdateCategoryTestDataGenerator))]
         public async Task UpdateCategoryWithoutProvidingIsActive(
-            Category exampleCategory,
+            DomainEntity.Category exampleCategory,
             UpdateCategoryInput exampleInput
         )
         {
             var input = new UpdateCategoryInput(
-                exampleInput.Id, 
+                exampleInput.Id,
                 exampleInput.Name,
                 exampleInput.Description);
             var repositoryMock = _fixture.GetRepositoryMock();
@@ -161,7 +160,7 @@ namespace RS.CodeFlix.Catalog.UnitTests.Application.UpdateCategory
             parameters: 10,
             MemberType = typeof(UpdateCategoryTestDataGenerator))]
         public async Task UpdateCategoryOnlyName(
-            Category exampleCategory,
+            DomainEntity.Category exampleCategory,
             UpdateCategoryInput exampleInput
         )
         {
