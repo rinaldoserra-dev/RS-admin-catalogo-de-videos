@@ -1,4 +1,6 @@
 ﻿using Bogus;
+using Microsoft.EntityFrameworkCore;
+using RS.Codeflix.Catalog.Infra.Data.EF;
 
 namespace RS.CodeFlix.Catalog.IntegrationTests.Base
 {
@@ -10,5 +12,19 @@ namespace RS.CodeFlix.Catalog.IntegrationTests.Base
         }
 
         protected Faker Faker { get; set; }
+
+        public CodeflixCatalogDbContext CreateDbContext(bool preserveData = false)
+        {
+            var dbContext = new CodeflixCatalogDbContext(
+                new DbContextOptionsBuilder<CodeflixCatalogDbContext>()
+                .UseInMemoryDatabase("integration-tests-db")
+                .Options
+            );
+            if (!preserveData)
+            {
+                dbContext.Database.EnsureDeleted();
+            }
+            return dbContext;
+        }
     }
 }

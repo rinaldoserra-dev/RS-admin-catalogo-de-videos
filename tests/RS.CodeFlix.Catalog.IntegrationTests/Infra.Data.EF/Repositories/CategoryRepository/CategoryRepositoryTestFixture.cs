@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using RS.Codeflix.Catalog.Infra.Data.EF;
-using RS.CodeFlix.Catalog.Domain.Entity;
+﻿using RS.CodeFlix.Catalog.Domain.Entity;
 using RS.CodeFlix.Catalog.Domain.SeedWork.SearchableRepository;
 using RS.CodeFlix.Catalog.IntegrationTests.Base;
 
@@ -79,19 +77,6 @@ namespace RS.CodeFlix.Catalog.IntegrationTests.Infra.Data.EF.Repositories.Catego
                 _ => listClone.OrderBy(x => x.Name)
             };
             return orderedEnumerable.ToList();
-        }
-        public CodeflixCatalogDbContext CreateDbContext(bool preserveData = false)
-        {
-            var dbContext = new CodeflixCatalogDbContext(
-                new DbContextOptionsBuilder<CodeflixCatalogDbContext>()
-                .UseInMemoryDatabase("integration-tests-db")
-                .Options
-            );
-            if (!preserveData)
-            {
-                dbContext.Database.EnsureDeleted();
-            }
-            return dbContext;
         }
     }
 }
