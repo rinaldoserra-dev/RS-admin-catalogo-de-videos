@@ -13,7 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RS.CodeFlix.Catalog.Domain"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RS.CodeFlix.Catalog.Flunt", "src\RS.CodeFlix.Catalog.Flunt\RS.CodeFlix.Catalog.Flunt.csproj", "{5C649692-211D-4BA0-83B0-122140B564AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RS.CodeFlix.Catalog.Application", "src\RS.CodeFlix.Catalog.Application\RS.CodeFlix.Catalog.Application.csproj", "{C7EAB792-63CE-41E5-88D9-2D22915B39D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RS.CodeFlix.Catalog.Application", "src\RS.CodeFlix.Catalog.Application\RS.CodeFlix.Catalog.Application.csproj", "{C7EAB792-63CE-41E5-88D9-2D22915B39D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RS.CodeFlix.Catalog.IntegrationTests", "tests\RS.CodeFlix.Catalog.IntegrationTests\RS.CodeFlix.Catalog.IntegrationTests.csproj", "{844E45B0-0863-4FA0-AD5A-3182B4A36529}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RS.Codeflix.Catalog.Infra.Data.EF", "src\RS.Codeflix.Catalog.Infra.Data.EF\RS.Codeflix.Catalog.Infra.Data.EF.csproj", "{3810DFA8-3264-456D-AB68-5D4A842C9547}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +41,14 @@ Global
 		{C7EAB792-63CE-41E5-88D9-2D22915B39D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7EAB792-63CE-41E5-88D9-2D22915B39D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7EAB792-63CE-41E5-88D9-2D22915B39D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{844E45B0-0863-4FA0-AD5A-3182B4A36529}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{844E45B0-0863-4FA0-AD5A-3182B4A36529}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{844E45B0-0863-4FA0-AD5A-3182B4A36529}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{844E45B0-0863-4FA0-AD5A-3182B4A36529}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3810DFA8-3264-456D-AB68-5D4A842C9547}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3810DFA8-3264-456D-AB68-5D4A842C9547}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3810DFA8-3264-456D-AB68-5D4A842C9547}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3810DFA8-3264-456D-AB68-5D4A842C9547}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +58,8 @@ Global
 		{68713F57-DAF5-42AB-96BE-19ED8A964848} = {9D876FDD-BE85-49E6-A106-CA3BB6F30535}
 		{5C649692-211D-4BA0-83B0-122140B564AE} = {9D876FDD-BE85-49E6-A106-CA3BB6F30535}
 		{C7EAB792-63CE-41E5-88D9-2D22915B39D6} = {9D876FDD-BE85-49E6-A106-CA3BB6F30535}
+		{844E45B0-0863-4FA0-AD5A-3182B4A36529} = {36DAD672-AF2D-43C9-805D-F2E4B143D691}
+		{3810DFA8-3264-456D-AB68-5D4A842C9547} = {9D876FDD-BE85-49E6-A106-CA3BB6F30535}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2A49CBE1-68F1-4D76-B093-41C07281A663}
