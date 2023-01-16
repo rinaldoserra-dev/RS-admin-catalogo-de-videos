@@ -34,7 +34,7 @@ namespace RS.Codeflix.Catalog.Infra.Data.EF.Repositories
 
         public Task Delete(Category aggregate, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(_categories.Remove(aggregate));
         }
 
         public Task<SearchOutput<Category>> Search(SearchInput input, CancellationToken cancellationToken)
