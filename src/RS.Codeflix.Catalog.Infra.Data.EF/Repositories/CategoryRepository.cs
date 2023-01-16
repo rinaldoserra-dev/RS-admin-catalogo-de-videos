@@ -20,22 +20,24 @@ namespace RS.Codeflix.Catalog.Infra.Data.EF.Repositories
             //await _context.Categories.AddAsync(aggregate, cancellationToken);
             await _categories.AddAsync(aggregate, cancellationToken);
         }
+
+        public async Task<Category> Get(Guid id, CancellationToken cancellationToken)
+        {
+            //return await _categories.FirstOrDefaultAsync(category => category.Id == id, cancellationToken);
+            return await _categories.AsNoTracking().FirstOrDefaultAsync(x => x.Id ==  id, cancellationToken);
+        }
+        public Task Update(Category aggregate, CancellationToken cancellationToken)
+        {
+            return Task.FromResult(_context.Entry(aggregate).State = EntityState.Modified);
+            //return Task.FromResult(_categories.Update(aggregate)); 
+        }
+
         public Task Delete(Category aggregate, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Category> Get(Guid id, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
-        }
-
         public Task<SearchOutput<Category>> Search(SearchInput input, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Update(Category aggregate, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
