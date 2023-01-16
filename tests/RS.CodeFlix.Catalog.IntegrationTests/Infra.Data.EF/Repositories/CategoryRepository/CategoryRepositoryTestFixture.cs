@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RS.Codeflix.Catalog.Infra.Data.EF;
 using RS.CodeFlix.Catalog.Domain.Entity;
+using RS.CodeFlix.Catalog.Domain.SeedWork.SearchableRepository;
 using RS.CodeFlix.Catalog.IntegrationTests.Base;
 
 namespace RS.CodeFlix.Catalog.IntegrationTests.Infra.Data.EF.Repositories.CategoryRepository
@@ -50,14 +51,46 @@ namespace RS.CodeFlix.Catalog.IntegrationTests.Infra.Data.EF.Repositories.Catego
                     .ToList();
         }
 
-        public CodeflixCatalogDbContext CreateDbContext()
+        public List<Category> GetExampleCategoriesListWithNames(List<string> names)
+        {
+            return names
+                    .Select(name => {
+                        var category = GetExampleCategory();
+                        category.Update(name);
+                        return category;
+                    }).ToList();  
+        }
+
+        public List<Category> CloneCategoriesListOrdered(
+            List<Category> categoriesList, 
+            string orderBy, 
+            SearchOrder order
+        )
+        {
+            var listClone = new List<Category>(categoriesList);
+            var orderedEnumerable = (orderBy.ToLower(), order) switch
+            {
+                ("name", SearchOrder.Asc) => listClone.OrderBy(x => x.Name),
+                ("name", SearchOrder.Desc) => listClone.OrderByDescending(x => x.Name),
+                ("id", SearchOrder.Asc) => listClone.OrderBy(x => x.Id),
+                ("id", SearchOrder.Desc) => listClone.OrderByDescending(x => x.Id),
+                ("createdat", SearchOrder.Asc) => listClone.OrderBy(x => x.CreatedAt),
+                ("createdat", SearchOrder.Desc) => listClone.OrderByDescending(x => x.CreatedAt),
+                _ => listClone.OrderBy(x => x.Name)
+            };
+            return orderedEnumerable.ToList();
+        }
+        public CodeflixCatalogDbContext CreateDbContext(bool preserveData = false)
         {
             var dbContext = new CodeflixCatalogDbContext(
                 new DbContextOptionsBuilder<CodeflixCatalogDbContext>()
                 .UseInMemoryDatabase("integration-tests-db")
                 .Options
             );
-
+            if (!preserveData)
+            {
+                dbContext.Database.EnsureDeleted();
+            }
             return dbContext;
         }
     }
