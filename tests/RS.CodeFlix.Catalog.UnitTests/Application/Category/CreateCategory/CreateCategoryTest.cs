@@ -80,7 +80,6 @@ namespace RS.CodeFlix.Catalog.UnitTests.Application.Category.CreateCategory
                });
         }
 
-
         [Fact(DisplayName = nameof(CreateCategoryWithOnlyName))]
         [Trait("Application", "CreateCategoryTest - Use Cases")]
         public async void CreateCategoryWithOnlyName()

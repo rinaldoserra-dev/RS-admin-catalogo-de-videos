@@ -1,15 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RS.Codeflix.Catalog.Infra.Data.EF.Configurations;
+using RS.CodeFlix.Catalog.Infra.Data.EF.Configurations;
 using RS.CodeFlix.Catalog.Domain.Entity;
 using RS.CodeFlix.Catalog.Flunt.Notifications;
 
-namespace RS.Codeflix.Catalog.Infra.Data.EF
+namespace RS.CodeFlix.Catalog.Infra.Data.EF
 {
-    public class CodeflixCatalogDbContext
+    public class CodeFlixCatalogDbContext
         : DbContext
     {
         public DbSet<Category> Categories { get; set; }
-        public CodeflixCatalogDbContext(DbContextOptions<CodeflixCatalogDbContext> options) 
+        public CodeFlixCatalogDbContext(DbContextOptions<CodeFlixCatalogDbContext> options) 
             : base(options)
         {
         }

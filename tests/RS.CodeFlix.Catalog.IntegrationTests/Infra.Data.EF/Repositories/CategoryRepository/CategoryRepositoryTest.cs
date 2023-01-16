@@ -1,8 +1,8 @@
 ﻿using FluentAssertions;
-using RS.Codeflix.Catalog.Infra.Data.EF;
+using RS.CodeFlix.Catalog.Infra.Data.EF;
 using RS.CodeFlix.Catalog.Domain.Entity;
 using RS.CodeFlix.Catalog.Domain.SeedWork.SearchableRepository;
-using Repository = RS.Codeflix.Catalog.Infra.Data.EF.Repositories;
+using Repository = RS.CodeFlix.Catalog.Infra.Data.EF.Repositories;
 
 namespace RS.CodeFlix.Catalog.IntegrationTests.Infra.Data.EF.Repositories.CategoryRepository
 {
@@ -20,7 +20,7 @@ namespace RS.CodeFlix.Catalog.IntegrationTests.Infra.Data.EF.Repositories.Catego
         [Trait("Integration/Infra.Data", "CategoryRepository - Repositories")]
         public async Task Insert()
         {
-            CodeflixCatalogDbContext dbContext = _fixture.CreateDbContext();
+            CodeFlixCatalogDbContext dbContext = _fixture.CreateDbContext();
             var exampleCategory = _fixture.GetExampleCategory();
             var categoryRepository = new Repository.CategoryRepository(dbContext);
 
@@ -39,7 +39,7 @@ namespace RS.CodeFlix.Catalog.IntegrationTests.Infra.Data.EF.Repositories.Catego
         [Trait("Integration/Infra.Data", "CategoryRepository - Repositories")]
         public async Task Get()
         {
-            CodeflixCatalogDbContext dbContext = _fixture.CreateDbContext();
+            CodeFlixCatalogDbContext dbContext = _fixture.CreateDbContext();
             var exampleCategory = _fixture.GetExampleCategory();
             var exampleCategoriesList = _fixture.GetExampleCategoriesList();
             exampleCategoriesList.Add(exampleCategory);
@@ -61,7 +61,7 @@ namespace RS.CodeFlix.Catalog.IntegrationTests.Infra.Data.EF.Repositories.Catego
         [Trait("Integration/Infra.Data", "CategoryRepository - Repositories")]
         public async Task GetNotFound()
         {
-            CodeflixCatalogDbContext dbContext = _fixture.CreateDbContext();
+            CodeFlixCatalogDbContext dbContext = _fixture.CreateDbContext();
             
             await dbContext.AddRangeAsync(_fixture.GetExampleCategoriesList());
             await dbContext.SaveChangesAsync(CancellationToken.None);
@@ -76,7 +76,7 @@ namespace RS.CodeFlix.Catalog.IntegrationTests.Infra.Data.EF.Repositories.Catego
         [Trait("Integration/Infra.Data", "CategoryRepository - Repositories")]
         public async Task Update()
         {
-            CodeflixCatalogDbContext dbContext = _fixture.CreateDbContext();
+            CodeFlixCatalogDbContext dbContext = _fixture.CreateDbContext();
             var exampleCategory = _fixture.GetExampleCategory();
             var newCategoryValues = _fixture.GetExampleCategory();
             var exampleCategoriesList = _fixture.GetExampleCategoriesList(15);
@@ -102,7 +102,7 @@ namespace RS.CodeFlix.Catalog.IntegrationTests.Infra.Data.EF.Repositories.Catego
         [Trait("Integration/Infra.Data", "CategoryRepository - Repositories")]
         public async Task Delete()
         {
-            CodeflixCatalogDbContext dbContext = _fixture.CreateDbContext();
+            CodeFlixCatalogDbContext dbContext = _fixture.CreateDbContext();
             var exampleCategory = _fixture.GetExampleCategory();
            
             var exampleCategoriesList = _fixture.GetExampleCategoriesList();
@@ -123,7 +123,7 @@ namespace RS.CodeFlix.Catalog.IntegrationTests.Infra.Data.EF.Repositories.Catego
         [Trait("Integration/Infra.Data", "CategoryRepository - Repositories")]
         public async Task SearchReturnsListAndTotal()
         {
-            CodeflixCatalogDbContext dbContext = _fixture.CreateDbContext();        
+            CodeFlixCatalogDbContext dbContext = _fixture.CreateDbContext();        
             var exampleCategoriesList = _fixture.GetExampleCategoriesList(15);
             await dbContext.AddRangeAsync(exampleCategoriesList);
             await dbContext.SaveChangesAsync(CancellationToken.None);
@@ -152,7 +152,7 @@ namespace RS.CodeFlix.Catalog.IntegrationTests.Infra.Data.EF.Repositories.Catego
         [Trait("Integration/Infra.Data", "CategoryRepository - Repositories")]
         public async Task SearchReturnsEmptyWhenPersistenceIsEmpty()
         {
-            CodeflixCatalogDbContext dbContext = _fixture.CreateDbContext();
+            CodeFlixCatalogDbContext dbContext = _fixture.CreateDbContext();
             var categoryRepository = new Repository.CategoryRepository(dbContext);
             var searchInput = new SearchInput(1, 20, "", "", SearchOrder.Asc);
 
@@ -178,7 +178,7 @@ namespace RS.CodeFlix.Catalog.IntegrationTests.Infra.Data.EF.Repositories.Catego
             int expectedQuantityItems
         )
         {
-            CodeflixCatalogDbContext dbContext = _fixture.CreateDbContext();
+            CodeFlixCatalogDbContext dbContext = _fixture.CreateDbContext();
             var exampleCategoriesList = _fixture.GetExampleCategoriesList(quantityCategoryToGenerate);
             await dbContext.AddRangeAsync(exampleCategoriesList);
             await dbContext.SaveChangesAsync(CancellationToken.None);
@@ -221,7 +221,7 @@ namespace RS.CodeFlix.Catalog.IntegrationTests.Infra.Data.EF.Repositories.Catego
             int expectedQuantityTotalItems
         )
         {
-            CodeflixCatalogDbContext dbContext = _fixture.CreateDbContext();
+            CodeFlixCatalogDbContext dbContext = _fixture.CreateDbContext();
             var exampleCategoriesList = _fixture
                 .GetExampleCategoriesListWithNames(new List<string>
             {
@@ -273,7 +273,7 @@ namespace RS.CodeFlix.Catalog.IntegrationTests.Infra.Data.EF.Repositories.Catego
             string order
         )
         {
-            CodeflixCatalogDbContext dbContext = _fixture.CreateDbContext();
+            CodeFlixCatalogDbContext dbContext = _fixture.CreateDbContext();
             var exampleCategoriesList = _fixture
                 .GetExampleCategoriesList(10);
             await dbContext.AddRangeAsync(exampleCategoriesList);

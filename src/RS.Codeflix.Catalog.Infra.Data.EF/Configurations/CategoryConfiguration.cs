@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using RS.CodeFlix.Catalog.Domain.Entity;
 
-namespace RS.Codeflix.Catalog.Infra.Data.EF.Configurations
+namespace RS.CodeFlix.Catalog.Infra.Data.EF.Configurations
 {
     internal class CategoryConfiguration
         : IEntityTypeConfiguration<Category>

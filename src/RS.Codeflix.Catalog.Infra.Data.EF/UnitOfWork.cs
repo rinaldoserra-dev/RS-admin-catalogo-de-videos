@@ -1,13 +1,13 @@
 ﻿using RS.CodeFlix.Catalog.Application.Interfaces;
 
-namespace RS.Codeflix.Catalog.Infra.Data.EF
+namespace RS.CodeFlix.Catalog.Infra.Data.EF
 {
     public class UnitOfWork
         : IUnitOfWork
     {
-        private readonly CodeflixCatalogDbContext _context;
+        private readonly CodeFlixCatalogDbContext _context;
 
-        public UnitOfWork(CodeflixCatalogDbContext context)
+        public UnitOfWork(CodeFlixCatalogDbContext context)
         {
             _context = context;
         }

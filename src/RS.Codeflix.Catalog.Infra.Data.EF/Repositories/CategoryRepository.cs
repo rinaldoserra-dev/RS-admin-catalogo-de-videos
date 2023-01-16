@@ -3,14 +3,14 @@ using RS.CodeFlix.Catalog.Domain.Entity;
 using RS.CodeFlix.Catalog.Domain.Repository;
 using RS.CodeFlix.Catalog.Domain.SeedWork.SearchableRepository;
 
-namespace RS.Codeflix.Catalog.Infra.Data.EF.Repositories
+namespace RS.CodeFlix.Catalog.Infra.Data.EF.Repositories
 {
     public class CategoryRepository : ICategoryRepository
     {
-        private readonly CodeflixCatalogDbContext _context;
+        private readonly CodeFlixCatalogDbContext _context;
         private DbSet<Category> _categories => _context.Set<Category>();
 
-        public CategoryRepository(CodeflixCatalogDbContext context)
+        public CategoryRepository(CodeFlixCatalogDbContext context)
         {
             _context = context;
         }

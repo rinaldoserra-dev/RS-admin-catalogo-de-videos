@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
-using UnitOfWorkInfra = RS.Codeflix.Catalog.Infra.Data.EF;
+using UnitOfWorkInfra = RS.CodeFlix.Catalog.Infra.Data.EF;
 namespace RS.CodeFlix.Catalog.IntegrationTests.Infra.Data.EF.UnitOfWork
 {
     [Collection(nameof(UnitOfWorkTestFixture))]
