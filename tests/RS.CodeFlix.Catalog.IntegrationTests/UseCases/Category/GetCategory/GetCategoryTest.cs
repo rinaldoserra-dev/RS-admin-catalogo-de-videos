@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using RS.CodeFlix.Catalog.Infra.Data.EF.Repositories;
 using RS.CodeFlix.Catalog.Flunt.Notifications;
-using UseCase = RS.CodeFlix.Catalog.Application.UseCases.Category.GetCategory;
+using ApplicationUseCase = RS.CodeFlix.Catalog.Application.UseCases.Category.GetCategory;
 namespace RS.CodeFlix.Catalog.IntegrationTests.UseCases.Category.GetCategory
 {
     [Collection(nameof(GetCategoryTestFixture))]
@@ -22,9 +22,9 @@ namespace RS.CodeFlix.Catalog.IntegrationTests.UseCases.Category.GetCategory
             dbContext.SaveChanges();
             var repository = new CategoryRepository(dbContext);
             
-            var input = new UseCase.GetCategoryInput(exampleCategory.Id);
+            var input = new ApplicationUseCase.GetCategoryInput(exampleCategory.Id);
 
-            var useCase = new UseCase.GetCategory(repository);
+            var useCase = new ApplicationUseCase.GetCategory(repository);
 
             var output = await useCase.Handle(input, CancellationToken.None);
 
@@ -46,9 +46,9 @@ namespace RS.CodeFlix.Catalog.IntegrationTests.UseCases.Category.GetCategory
             dbContext.SaveChanges();
             var repository = new CategoryRepository(dbContext);
 
-            var input = new UseCase.GetCategoryInput(Guid.NewGuid());
+            var input = new ApplicationUseCase.GetCategoryInput(Guid.NewGuid());
 
-            var useCase = new UseCase.GetCategory(repository);
+            var useCase = new ApplicationUseCase.GetCategory(repository);
 
             var output = await useCase.Handle(input, CancellationToken.None);
 
